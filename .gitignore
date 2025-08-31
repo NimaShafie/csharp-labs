@@ -416,3 +416,14 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# VS local history (extra safety; some entries already present)
+.vshistory/
+
+# OS cruft
+Thumbs.db
+.DS_Store
