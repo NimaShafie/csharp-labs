@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab1.SmartTvRemote.Domain.State
+namespace Lab1.SmartTvRemote.Domain.Remote
 {
-    internal interface IRemoteState
+    internal class RemoteCommand
     {
     }
 }

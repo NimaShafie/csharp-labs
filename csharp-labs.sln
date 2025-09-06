@@ -9,10 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab1.SmartTvRemote.App", "L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab1.SmartTvRemote.Domain", "Lab1_SmartTVRemoteControl\Lab1.SmartTvRemote.Domain\Lab1.SmartTvRemote.Domain.csproj", "{918EAB40-263B-F0C9-8B16-2676C2E1920F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab1.SmartTvRemote.Domain.Tests", "Lab1_SmartTVRemoteControl\Lab1.SmartTvRemote.Domain.Tests\Lab1.SmartTvRemote.Domain.Tests.csproj", "{23D8FA9B-F124-E424-C762-FBF90E4F4C77}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab1.SmartTvRemote.Infrastructure", "Lab1_SmartTVRemoteControl\Lab1.SmartTvRemote.Infrastructure\Lab1.SmartTvRemote.Infrastructure.csproj", "{35FC9D01-9C47-A7AC-8405-A8D436AB7915}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,14 +23,6 @@ Global
 		{918EAB40-263B-F0C9-8B16-2676C2E1920F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{918EAB40-263B-F0C9-8B16-2676C2E1920F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{918EAB40-263B-F0C9-8B16-2676C2E1920F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{23D8FA9B-F124-E424-C762-FBF90E4F4C77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23D8FA9B-F124-E424-C762-FBF90E4F4C77}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23D8FA9B-F124-E424-C762-FBF90E4F4C77}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23D8FA9B-F124-E424-C762-FBF90E4F4C77}.Release|Any CPU.Build.0 = Release|Any CPU
-		{35FC9D01-9C47-A7AC-8405-A8D436AB7915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35FC9D01-9C47-A7AC-8405-A8D436AB7915}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{35FC9D01-9C47-A7AC-8405-A8D436AB7915}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{35FC9D01-9C47-A7AC-8405-A8D436AB7915}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,8 +30,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8F631C26-DD66-C83C-AF87-C37249B5FF27} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{918EAB40-263B-F0C9-8B16-2676C2E1920F} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
-		{23D8FA9B-F124-E424-C762-FBF90E4F4C77} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
-		{35FC9D01-9C47-A7AC-8405-A8D436AB7915} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AAF801A5-BB7F-408D-80BA-D93518E6C754}

@@ -1,12 +1,29 @@
-﻿using Lab1.SmartTvRemote.Domain;
+﻿using Lab1.RemoteController.Domain.Contracts;
 
-var tv = new FakeTv();
+static void Main()
+{
+    var screen = new Screen();
+    var tvs = new List<ISamsungTu7000>
+    {
+        new SamsungTu7000_43(screen),
+        new SamsungTu7000_55(screen),
+        new SamsungTu7000_65(screen)
+    };
 
-// subscribe to events to see real-time output (like attaching a callback in C++)
-tv.PowerChanged += (_, on) => Console.WriteLine($"Power: {(on ? "On" : "Off")}");
-tv.VolumeChanged += (_, vol) => Console.WriteLine($"Volume: {vol}");
-tv.ChannelChanged += (_, ch) => Console.WriteLine($"Channel: {ch}");
+    ISamsungTu7000 current = tvs[0];
+    var remote = new RemoteTM1240A(current);
 
-await tv.PowerOnAsync();
-await tv.SetVolumeAsync(tv.CurrentVolume + 1);
-await tv.ChangeChannelAsync(7);
+    while (true)
+    {
+        Console.Clear();
+        AsciiArt.PrintRemote();                         // optional fun
+        PrintTvs(tvs, current);
+        PrintRemoteMenu();
+
+        var input = Console.ReadLine()?.Trim() ?? string.Empty;
+        if (HandleTvSelection(input, tvs, ref current, remote)) continue;
+        if (HandleRemoteCommand(input, remote)) continue;
+
+        if (input.Equals("q", StringComparison.OrdinalIgnoreCase)) break;
+    }
+}

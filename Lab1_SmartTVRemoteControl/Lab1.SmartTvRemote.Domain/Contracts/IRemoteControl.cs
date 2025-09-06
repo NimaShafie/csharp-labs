@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab1.SmartTvRemote.Domain
+namespace Lab1.SmartTvRemote.Domain.Contracts
 {
-    internal class RemoteControl
+    internal interface IRemoteControl
     {
     }
 }
