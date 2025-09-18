@@ -1,4 +1,5 @@
-﻿namespace Lab1.SmartTvRemote.Domain.Remote
+﻿// Domain/Remote/RemoteCommand.cs
+namespace Lab1.SmartTvRemote.Domain.Remote
 {
     using System;
     using System.Collections.Generic;
@@ -18,7 +19,6 @@
             yield return new BasicCommand("Mute", "M", "Mute toggle", (tv, _) => tv.MuteToggle());
 
             // source
-            yield return new BasicCommand("Source", "O", "Select source", (tv, _) => tv.OpenSource());
             yield return new BasicCommand("Source0", "0", "Select source", (tv, _) => tv.OpenSource());
 
             // smart menu

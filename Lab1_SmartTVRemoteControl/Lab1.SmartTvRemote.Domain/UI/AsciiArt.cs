@@ -1,6 +1,4 @@
 ﻿// Domain/UI/AsciiArt.cs
-using System;
-using System.Collections.Generic;
 using Lab1.SmartTvRemote.Domain.Contracts;
 
 namespace Lab1.SmartTvRemote.Domain.UI

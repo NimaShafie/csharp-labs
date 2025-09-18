@@ -25,7 +25,7 @@ public static class ConsoleShell
             // execute remote command first
             if (remote.TryExecute(input))
             {
-                // open subm menus as needed
+                // open sub menus as needed
                 if (string.Equals(input, "0", StringComparison.OrdinalIgnoreCase))
                 {
                     if (!MenuController.EnsureTvOn(current, screen, "Source")) { continue; }
