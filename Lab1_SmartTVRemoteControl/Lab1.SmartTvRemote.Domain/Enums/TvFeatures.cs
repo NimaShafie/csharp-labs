@@ -1,13 +1,13 @@
-﻿[Flags]
-public enum TvFeatures
+﻿// Lab1.SmartTvRemote.Domain/Enums/TvFeatures.cs
+
+namespace Lab1.SmartTvRemote.Domain.Enums
 {
-    None = 0,
-    SmartMenu = 1 << 0,
-    HDR = 1 << 1,
-    GameMode = 1 << 2,
-    // add more if you want to demonstrate feature gating
+    [Flags]
+    public enum TvFeatures
+    {
+        None = 0,
+        SmartMenu = 1 << 0,
+        HDR = 1 << 1,
+        GameMode = 1 << 2,
+    }
 }
-
-public enum PowerState { Off, On }
-
-public enum InputSource { TV, HDMI1, HDMI2, AV, Apps }

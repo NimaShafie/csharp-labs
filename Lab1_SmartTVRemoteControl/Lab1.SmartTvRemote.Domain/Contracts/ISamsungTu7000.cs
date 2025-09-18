@@ -1,20 +1,22 @@
-﻿namespace Lab1.RemoteController.Domain.Contracts
+﻿// Domain/Contracts/ISamsungTu7000.cs
+namespace Lab1.SmartTvRemote.Domain.Contracts
 {
+    using Lab1.SmartTvRemote.Domain.Enums;
     public interface ISamsungTu7000
     {
-        string Brand { get; }
         string Model { get; }
         int SizeInches { get; }
         TvFeatures SupportedFeatures { get; }
 
         bool IsOn { get; }
         bool IsMuted { get; }
-        int Volume { get; }                 // 0..MaxVolume
-        int MaxVolume { get; }              // override per model if desired
-        int Channel { get; }                // >= 1 (or a channel map if you want)
-        InputSource Input { get; }          // TV, HDMI1, HDMI2, etc.
-
-        // Commands
+        bool IsSmartMode { get; }
+        int Volume { get; }
+        int MaxVolume { get; }
+        int Channel { get; }
+        string GetStateSummary();
+        string? ActiveApp { get; }
+        InputSource Input { get; }
         void PowerToggle();
         void VolumeUp();
         void VolumeDown();
@@ -23,10 +25,15 @@
         void ChannelDown();
         void SetChannel(int channelNumber);
         void MuteToggle();
-        void OpenSmartMenu();               // no-op if not supported
+        void OpenSmartMenu();
         void OpenSettings();
+        void OpenSource();
+        void OpenApp(string appName);
+        void AdjustSetting(string which, string[] args);
+        void Return();
+        void Exit();
 
-        // Events for the Screen (and tests)
+        // events to notify about state changes
         event EventHandler? PowerStateChanged;
         event EventHandler<int>? VolumeChanged;
         event EventHandler<int>? ChannelChanged;

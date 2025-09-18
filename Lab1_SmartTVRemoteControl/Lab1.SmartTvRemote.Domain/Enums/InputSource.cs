@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿// Lab1.SmartTvRemote.Domain/Enums/InputSource.cs
 namespace Lab1.SmartTvRemote.Domain.Enums
 {
-    internal class InputSource
+    // all inputs the TV can show
+    public enum InputSource
     {
+        TV,
+        HDMI1,
+        HDMI2,
+        AV,
+        Apps
     }
 }

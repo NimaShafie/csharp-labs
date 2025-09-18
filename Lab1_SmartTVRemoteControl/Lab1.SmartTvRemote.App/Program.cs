@@ -1,29 +1,38 @@
-﻿using Lab1.RemoteController.Domain.Contracts;
+﻿using Lab1.SmartTvRemote.Domain.Contracts;
+using Lab1.SmartTvRemote.Domain.Models;
+using Lab1.SmartTvRemote.Domain.Remote;
+using Lab1.SmartTvRemote.Domain.UI;
 
-static void Main()
+class Program
 {
-    var screen = new Screen();
-    var tvs = new List<ISamsungTu7000>
+    static void Main()
     {
-        new SamsungTu7000_43(screen),
-        new SamsungTu7000_55(screen),
-        new SamsungTu7000_65(screen)
-    };
+        var screen = new Screen();
 
-    ISamsungTu7000 current = tvs[0];
-    var remote = new RemoteTM1240A(current);
+        // TVs (all start OFF)
+        var tvs = new List<ISamsungTu7000>
+        {
+            SamsungTu7000.Create(screen, SamsungTu7000Size.In43),
+            SamsungTu7000.Create(screen, SamsungTu7000Size.In50),
+            SamsungTu7000.Create(screen, SamsungTu7000Size.In55),
+            SamsungTu7000.Create(screen, SamsungTu7000Size.In58),
+            SamsungTu7000.Create(screen, SamsungTu7000Size.In65),
+            SamsungTu7000.Create(screen, SamsungTu7000Size.In70),
+            SamsungTu7000.Create(screen, SamsungTu7000Size.In75),
+        };
 
-    while (true)
-    {
-        Console.Clear();
-        AsciiArt.PrintRemote();                         // optional fun
-        PrintTvs(tvs, current);
-        PrintRemoteMenu();
+        var current = tvs[0];
+        var remote = new RemoteTM1240A(current);
 
-        var input = Console.ReadLine()?.Trim() ?? string.Empty;
-        if (HandleTvSelection(input, tvs, ref current, remote)) continue;
-        if (HandleRemoteCommand(input, remote)) continue;
+        foreach (var tv in tvs)
+        {
+            tv.PowerStateChanged += (_, __) => screen.RenderSummary(tv.GetStateSummary());
+            tv.VolumeChanged += (_, __) => screen.RenderSummary(tv.GetStateSummary());
+            tv.ChannelChanged += (_, __) => screen.RenderSummary(tv.GetStateSummary());
+            tv.MuteChanged += (_, __) => screen.RenderSummary(tv.GetStateSummary());
+            tv.InputChanged += (_, __) => screen.RenderSummary(tv.GetStateSummary());
+        }
 
-        if (input.Equals("q", StringComparison.OrdinalIgnoreCase)) break;
+        ConsoleShell.Run(remote, tvs, screen, current);
     }
 }

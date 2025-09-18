@@ -427,3 +427,18 @@ FodyWeavers.xsd
 # OS cruft
 Thumbs.db
 .DS_Store
+
+# Build
+bin/
+obj/
+*.user
+*.suo
+
+# VS
+.vs/
+.vscode/
+
+# Others
+*.nupkg
+*.cache
+
